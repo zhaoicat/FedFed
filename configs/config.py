@@ -45,4 +45,12 @@ def get_cfg():
         a CfgNode instance.
     '''
     from .default import _C
+    _C.training = CN()
+    _C.training.batch_size = 256
+    _C.training.num_workers = 8
+    _C.training.pin_memory = True
+    _C.training.prefetch_factor = 2
+    _C.training.persistent_workers = True
+    _C.training.accumulation_steps = 4
+    _C.training.use_amp = True
     return _C.clone()

@@ -8,6 +8,8 @@ from copy import deepcopy
 
 import numpy as np
 import torch
+from torch.cuda.amp import autocast, GradScaler
+from torch.utils.data import DataLoader
 
 from algorithms.basePS.ps_client_trainer import PSTrainer
 from utils.data_utils import optimizer_to
@@ -62,9 +64,17 @@ class Client(PSTrainer):
         
         train_ori_dataset = Dataset_Personalize(self.train_ori_data, self.train_ori_targets,
                                                 transform=train_ori_transform)
-        self.local_train_dataloader = torch.utils.data.DataLoader(dataset=train_ori_dataset,
-                                                                  batch_size=32, shuffle=True,
-                                                                  drop_last=False)
+        train_loader = DataLoader(
+            train_ori_dataset,
+            batch_size=self.args.training['batch_size'],
+            num_workers=self.args.training['num_workers'],
+            pin_memory=self.args.training['pin_memory'],
+            prefetch_factor=self.args.training['prefetch_factor'],
+            persistent_workers=self.args.training['persistent_workers'],
+            shuffle=True,
+            drop_last=False
+        )
+        self.local_train_dataloader = train_loader
 
     def _attack(self,size, mean, std):  #
         rand = torch.normal(mean=mean, std=std, size=size).to(self.device)
@@ -464,7 +474,10 @@ class Client(PSTrainer):
                                                  transform=train_ori_transform,
                                                  share_transform=train_share_transform)
         self.local_train_mixed_dataloader = torch.utils.data.DataLoader(dataset=train_dataset,
-                                                                  batch_size=32, shuffle=True,
+                                                                  batch_size=32, 
+                                                                  shuffle=True,
+                                                                  num_workers=4,  # 添加工作进程
+                                                                  pin_memory=True,  # 使用固定内存
                                                                   drop_last=False)
 
 

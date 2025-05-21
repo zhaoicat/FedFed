@@ -1,0 +1,657 @@
+0 - 2025-05-21 04:18:09,272 loader.py[line:132] INFO dataset augmentation: default, resize: 32
+0 - 2025-05-21 04:18:10,563 loader.py[line:163] INFO /root/FedFed
+0 - 2025-05-21 04:18:10,565 loader.py[line:279] INFO partition_method = hetero
+0 - 2025-05-21 04:18:10,565 loader.py[line:291] INFO N = 50000
+0 - 2025-05-21 04:18:10,574 loader.py[line:223] INFO train_cls_local_counts_dict = {0: {0: 976, 1: 1632, 2: 18, 3: 1120, 5: 132, 7: 636, 8: 3101}, 1: {1: 1, 5: 59, 7: 3, 8: 851, 9: 4228}, 2: {1: 814, 2: 212, 3: 3735, 5: 2737}, 3: {0: 46, 1: 291, 3: 4, 8: 401, 9: 123}, 4: {0: 125, 2: 1, 3: 137, 4: 1476, 6: 303, 8: 642, 9: 47}, 5: {0: 1923, 1: 381, 2: 3826}, 6: {1: 334, 2: 3, 3: 3, 4: 2477, 5: 2055, 7: 1543}, 7: {0: 6, 1: 1546, 2: 881, 7: 591, 8: 4, 9: 6}, 8: {0: 435, 2: 58, 4: 1046, 5: 16, 6: 4536}, 9: {0: 1489, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 161, 7: 2227, 8: 1, 9: 596}}
+0 - 2025-05-21 04:18:10,574 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:18:10,576 loader.py[line:228] INFO train_dl_global number = 782
+0 - 2025-05-21 04:18:10,576 loader.py[line:229] INFO test_dl_global number = 157
+0 - 2025-05-21 04:18:10,585 loader.py[line:246] INFO client_ID = 0, local_train_sample_number = 7615, local_test_sample_number = 10000
+0 - 2025-05-21 04:18:10,585 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:18:10,585 loader.py[line:253] INFO client_index = 0, batch_num_train_local = 119, batch_num_test_local = 157
+0 - 2025-05-21 04:18:10,591 loader.py[line:246] INFO client_ID = 1, local_train_sample_number = 5142, local_test_sample_number = 10000
+0 - 2025-05-21 04:18:10,591 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:18:10,592 loader.py[line:253] INFO client_index = 1, batch_num_train_local = 81, batch_num_test_local = 157
+0 - 2025-05-21 04:18:10,599 loader.py[line:246] INFO client_ID = 2, local_train_sample_number = 7498, local_test_sample_number = 10000
+0 - 2025-05-21 04:18:10,599 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:18:10,599 loader.py[line:253] INFO client_index = 2, batch_num_train_local = 118, batch_num_test_local = 157
+0 - 2025-05-21 04:18:10,603 loader.py[line:246] INFO client_ID = 3, local_train_sample_number = 865, local_test_sample_number = 10000
+0 - 2025-05-21 04:18:10,603 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:18:10,603 loader.py[line:253] INFO client_index = 3, batch_num_train_local = 14, batch_num_test_local = 157
+0 - 2025-05-21 04:18:10,607 loader.py[line:246] INFO client_ID = 4, local_train_sample_number = 2731, local_test_sample_number = 10000
+0 - 2025-05-21 04:18:10,608 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:18:10,608 loader.py[line:253] INFO client_index = 4, batch_num_train_local = 43, batch_num_test_local = 157
+0 - 2025-05-21 04:18:10,614 loader.py[line:246] INFO client_ID = 5, local_train_sample_number = 6130, local_test_sample_number = 10000
+0 - 2025-05-21 04:18:10,615 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:18:10,615 loader.py[line:253] INFO client_index = 5, batch_num_train_local = 96, batch_num_test_local = 157
+0 - 2025-05-21 04:18:10,625 loader.py[line:246] INFO client_ID = 6, local_train_sample_number = 6415, local_test_sample_number = 10000
+0 - 2025-05-21 04:18:10,625 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:18:10,625 loader.py[line:253] INFO client_index = 6, batch_num_train_local = 101, batch_num_test_local = 157
+0 - 2025-05-21 04:18:10,630 loader.py[line:246] INFO client_ID = 7, local_train_sample_number = 3034, local_test_sample_number = 10000
+0 - 2025-05-21 04:18:10,630 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:18:10,630 loader.py[line:253] INFO client_index = 7, batch_num_train_local = 48, batch_num_test_local = 157
+0 - 2025-05-21 04:18:10,638 loader.py[line:246] INFO client_ID = 8, local_train_sample_number = 6091, local_test_sample_number = 10000
+0 - 2025-05-21 04:18:10,639 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:18:10,639 loader.py[line:253] INFO client_index = 8, batch_num_train_local = 96, batch_num_test_local = 157
+0 - 2025-05-21 04:18:10,646 loader.py[line:246] INFO client_ID = 9, local_train_sample_number = 4479, local_test_sample_number = 10000
+0 - 2025-05-21 04:18:10,646 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:18:10,646 loader.py[line:253] INFO client_index = 9, batch_num_train_local = 70, batch_num_test_local = 157
+0 - 2025-05-21 04:18:10,646 FedAVGManager.py[line:47] INFO ############setup_clients (START)#############
+0 - 2025-05-21 04:18:10,787 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:10,788 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:18:10,788 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:18:10,847 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:10,849 ps_client_trainer.py[line:18] INFO Initializing client: 0 len(train_data) (local data num): 7615
+0 - 2025-05-21 04:18:10,849 client.py[line:34] INFO client 0 VAE Moel set up
+0 - 2025-05-21 04:18:10,849 client.py[line:52] INFO None
+0 - 2025-05-21 04:18:10,981 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:10,981 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:18:10,981 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:18:11,044 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:11,045 ps_client_trainer.py[line:18] INFO Initializing client: 1 len(train_data) (local data num): 5142
+0 - 2025-05-21 04:18:11,045 client.py[line:34] INFO client 1 VAE Moel set up
+0 - 2025-05-21 04:18:11,045 client.py[line:52] INFO 2
+Files already downloaded and verified
+Files already downloaded and verified
+0 - 2025-05-21 04:18:11,175 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:11,175 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:18:11,175 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:18:11,238 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:11,239 ps_client_trainer.py[line:18] INFO Initializing client: 2 len(train_data) (local data num): 7498
+0 - 2025-05-21 04:18:11,239 client.py[line:34] INFO client 2 VAE Moel set up
+0 - 2025-05-21 04:18:11,240 client.py[line:52] INFO None
+0 - 2025-05-21 04:18:11,369 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:11,369 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:18:11,369 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:18:11,433 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:11,434 ps_client_trainer.py[line:18] INFO Initializing client: 3 len(train_data) (local data num): 865
+0 - 2025-05-21 04:18:11,434 client.py[line:34] INFO client 3 VAE Moel set up
+0 - 2025-05-21 04:18:11,434 client.py[line:52] INFO 1
+0 - 2025-05-21 04:18:11,564 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:11,564 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:18:11,564 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:18:11,627 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:11,627 ps_client_trainer.py[line:18] INFO Initializing client: 4 len(train_data) (local data num): 2731
+0 - 2025-05-21 04:18:11,627 client.py[line:34] INFO client 4 VAE Moel set up
+0 - 2025-05-21 04:18:11,628 client.py[line:52] INFO None
+0 - 2025-05-21 04:18:11,757 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:11,757 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:18:11,757 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:18:11,820 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:11,821 ps_client_trainer.py[line:18] INFO Initializing client: 5 len(train_data) (local data num): 6130
+0 - 2025-05-21 04:18:11,821 client.py[line:34] INFO client 5 VAE Moel set up
+0 - 2025-05-21 04:18:11,821 client.py[line:52] INFO None
+0 - 2025-05-21 04:18:11,951 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:11,951 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:18:11,951 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:18:12,014 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:12,015 ps_client_trainer.py[line:18] INFO Initializing client: 6 len(train_data) (local data num): 6415
+0 - 2025-05-21 04:18:12,015 client.py[line:34] INFO client 6 VAE Moel set up
+0 - 2025-05-21 04:18:12,015 client.py[line:52] INFO None
+0 - 2025-05-21 04:18:12,240 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:12,240 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:18:12,240 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:18:12,303 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:12,303 ps_client_trainer.py[line:18] INFO Initializing client: 7 len(train_data) (local data num): 3034
+0 - 2025-05-21 04:18:12,304 client.py[line:34] INFO client 7 VAE Moel set up
+0 - 2025-05-21 04:18:12,304 client.py[line:52] INFO None
+0 - 2025-05-21 04:18:12,433 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:12,433 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:18:12,433 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:18:12,496 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:12,496 ps_client_trainer.py[line:18] INFO Initializing client: 8 len(train_data) (local data num): 6091
+0 - 2025-05-21 04:18:12,496 client.py[line:34] INFO client 8 VAE Moel set up
+0 - 2025-05-21 04:18:12,497 client.py[line:52] INFO 2
+0 - 2025-05-21 04:18:12,626 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:12,626 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:18:12,626 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:18:12,689 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:12,690 ps_client_trainer.py[line:18] INFO Initializing client: 9 len(train_data) (local data num): 4479
+0 - 2025-05-21 04:18:12,690 client.py[line:34] INFO client 9 VAE Moel set up
+0 - 2025-05-21 04:18:12,690 client.py[line:52] INFO None
+0 - 2025-05-21 04:18:12,690 FedAVGManager.py[line:72] INFO ############setup_clients (END)#############
+0 - 2025-05-21 04:18:12,690 FedAVGManager.py[line:24] INFO ############_setup_server (START)#############
+0 - 2025-05-21 04:18:12,690 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:18:12,691 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:18:12,758 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:12,887 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:18:12,888 FedAVGManager.py[line:43] INFO ############_setup_server (END)#############
+0 - 2025-05-21 04:18:12,889 basePSmanager.py[line:108] INFO ############Round 0 VAE #######################
+0 - 2025-05-21 04:18:12,889 basePSmanager.py[line:209] INFO VAE sampling client_indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+0 - 2025-05-21 04:18:12,889 client.py[line:346] INFO client 0 is going to train own VAE-model to generate RX GX and RXnoise
+/root/FedFed/utils/set.py:246: UserWarning: This overload of add_ is deprecated:
+	add_(Number alpha, Tensor other)
+Consider using one of the following signatures instead:
+	add_(Tensor other, *, Number alpha) (Triggered internally at  ../torch/csrc/utils/python_arg_parser.cpp:1174.)
+  exp_avg.mul_(beta1).add_(1 - beta1, grad)
+0 - 2025-05-21 04:18:41,761 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:18:51,821 client.py[line:346] INFO client 1 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:18:59,921 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:19:05,099 client.py[line:346] INFO client 2 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:19:30,114 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:19:39,961 client.py[line:346] INFO client 3 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:19:42,663 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:19:43,973 client.py[line:346] INFO client 4 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:19:53,320 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:19:57,069 client.py[line:346] INFO client 5 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:20:17,436 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:20:25,580 client.py[line:346] INFO client 6 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:20:46,915 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:20:55,550 client.py[line:346] INFO client 7 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:21:05,725 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:21:09,631 client.py[line:346] INFO client 8 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:21:19,124 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:21:24,623 client.py[line:346] INFO client 9 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:21:39,357 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:21:46,717 basePSmanager.py[line:151] INFO initial global model using Classifier from VAE in Round 0
+0 - 2025-05-21 04:21:48,491 ps_aggregator.py[line:166] INFO
+| VAE Phase Server Testing Round #0		Test Acc: 10.0000 Test Loss: 2.5325
+0 - 2025-05-21 04:21:48,492 basePSmanager.py[line:108] INFO ############Round 1 VAE #######################
+0 - 2025-05-21 04:21:48,492 basePSmanager.py[line:209] INFO VAE sampling client_indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+0 - 2025-05-21 04:21:48,493 client.py[line:346] INFO client 0 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:22:14,031 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:22:23,890 client.py[line:346] INFO client 1 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:22:32,422 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:22:37,693 client.py[line:346] INFO client 2 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:23:02,954 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:23:12,847 client.py[line:346] INFO client 3 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:23:15,921 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:23:17,290 client.py[line:346] INFO client 4 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:23:26,650 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:23:30,433 client.py[line:346] INFO client 5 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:23:51,556 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:23:59,571 client.py[line:346] INFO client 6 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:24:21,614 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:24:30,022 client.py[line:346] INFO client 7 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:24:40,470 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:24:44,450 client.py[line:346] INFO client 8 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:24:54,223 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:25:00,273 client.py[line:346] INFO client 9 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:25:15,647 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:25:23,722 basePSmanager.py[line:151] INFO initial global model using Classifier from VAE in Round 1
+0 - 2025-05-21 04:25:25,290 ps_aggregator.py[line:166] INFO
+| VAE Phase Server Testing Round #1		Test Acc: 10.0000 Test Loss: 2.9229
+0 - 2025-05-21 04:25:25,291 basePSmanager.py[line:108] INFO ############Round 2 VAE #######################
+0 - 2025-05-21 04:25:25,291 basePSmanager.py[line:209] INFO VAE sampling client_indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+0 - 2025-05-21 04:25:25,292 client.py[line:346] INFO client 0 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:25:50,330 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:26:00,328 client.py[line:346] INFO client 1 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:26:08,750 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:26:13,898 client.py[line:346] INFO client 2 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:26:39,042 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:26:47,857 client.py[line:346] INFO client 3 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:26:50,831 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:26:52,033 client.py[line:346] INFO client 4 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:27:01,158 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:27:04,936 client.py[line:346] INFO client 5 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:27:25,821 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:27:34,070 client.py[line:346] INFO client 6 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:27:55,655 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:28:04,297 client.py[line:346] INFO client 7 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:28:14,232 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:28:18,384 client.py[line:346] INFO client 8 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:28:28,318 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:28:34,444 client.py[line:346] INFO client 9 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:28:49,722 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:28:59,936 basePSmanager.py[line:151] INFO initial global model using Classifier from VAE in Round 2
+0 - 2025-05-21 04:29:01,492 ps_aggregator.py[line:166] INFO
+| VAE Phase Server Testing Round #2		Test Acc: 10.0000 Test Loss: 2.9976
+0 - 2025-05-21 04:29:01,492 basePSmanager.py[line:108] INFO ############Round 3 VAE #######################
+0 - 2025-05-21 04:29:01,492 basePSmanager.py[line:209] INFO VAE sampling client_indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+0 - 2025-05-21 04:29:01,493 client.py[line:346] INFO client 0 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:29:26,826 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:29:36,063 client.py[line:346] INFO client 1 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:29:44,522 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:29:49,464 client.py[line:346] INFO client 2 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:30:14,633 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:30:24,711 client.py[line:346] INFO client 3 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:30:27,727 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:30:28,957 client.py[line:346] INFO client 4 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:30:38,134 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:30:41,918 client.py[line:346] INFO client 5 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:31:02,814 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:31:10,565 client.py[line:346] INFO client 6 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:31:32,464 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:31:40,698 client.py[line:346] INFO client 7 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:31:50,959 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:31:54,970 client.py[line:346] INFO client 8 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:32:04,934 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:32:11,067 client.py[line:346] INFO client 9 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:32:26,262 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:32:37,525 basePSmanager.py[line:151] INFO initial global model using Classifier from VAE in Round 3
+0 - 2025-05-21 04:32:39,120 ps_aggregator.py[line:166] INFO
+| VAE Phase Server Testing Round #3		Test Acc: 10.0000 Test Loss: 2.7782
+0 - 2025-05-21 04:32:39,121 basePSmanager.py[line:108] INFO ############Round 4 VAE #######################
+0 - 2025-05-21 04:32:39,121 basePSmanager.py[line:209] INFO VAE sampling client_indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+0 - 2025-05-21 04:32:39,122 client.py[line:346] INFO client 0 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:33:04,959 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:33:14,986 client.py[line:346] INFO client 1 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:33:23,454 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:33:28,164 client.py[line:346] INFO client 2 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:33:53,010 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:34:02,899 client.py[line:346] INFO client 3 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:34:06,028 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:34:07,245 client.py[line:346] INFO client 4 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:34:16,814 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:34:20,512 client.py[line:346] INFO client 5 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:34:41,413 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:34:49,499 client.py[line:346] INFO client 6 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:35:11,465 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:35:19,975 client.py[line:346] INFO client 7 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:35:29,923 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:35:34,108 client.py[line:346] INFO client 8 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:35:44,227 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:35:50,359 client.py[line:346] INFO client 9 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:36:05,359 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:36:15,730 basePSmanager.py[line:151] INFO initial global model using Classifier from VAE in Round 4
+0 - 2025-05-21 04:36:17,374 ps_aggregator.py[line:166] INFO
+| VAE Phase Server Testing Round #4		Test Acc: 14.0800 Test Loss: 2.7999
+0 - 2025-05-21 04:36:17,374 basePSmanager.py[line:108] INFO ############Round 5 VAE #######################
+0 - 2025-05-21 04:36:17,375 basePSmanager.py[line:209] INFO VAE sampling client_indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+0 - 2025-05-21 04:36:17,375 client.py[line:346] INFO client 0 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:36:43,168 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:36:53,293 client.py[line:346] INFO client 1 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:37:01,617 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:37:06,721 client.py[line:346] INFO client 2 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:37:31,745 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:37:41,637 client.py[line:346] INFO client 3 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:37:44,724 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:37:45,960 client.py[line:346] INFO client 4 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:37:55,355 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:37:59,112 client.py[line:346] INFO client 5 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:38:20,432 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:38:28,649 client.py[line:346] INFO client 6 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:38:50,757 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:38:59,280 client.py[line:346] INFO client 7 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:39:09,664 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:39:13,880 client.py[line:346] INFO client 8 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:39:23,740 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:39:29,934 client.py[line:346] INFO client 9 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:39:45,065 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:39:54,227 basePSmanager.py[line:151] INFO initial global model using Classifier from VAE in Round 5
+0 - 2025-05-21 04:39:55,950 ps_aggregator.py[line:166] INFO
+| VAE Phase Server Testing Round #5		Test Acc: 22.6700 Test Loss: 2.6224
+0 - 2025-05-21 04:39:55,950 basePSmanager.py[line:108] INFO ############Round 6 VAE #######################
+0 - 2025-05-21 04:39:55,950 basePSmanager.py[line:209] INFO VAE sampling client_indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+0 - 2025-05-21 04:39:55,951 client.py[line:346] INFO client 0 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:40:21,761 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:40:31,876 client.py[line:346] INFO client 1 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:40:40,214 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:40:45,363 client.py[line:346] INFO client 2 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:41:10,862 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:41:20,493 client.py[line:346] INFO client 3 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:41:23,463 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:41:24,693 client.py[line:346] INFO client 4 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:41:33,931 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:41:37,574 client.py[line:346] INFO client 5 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:41:57,750 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:42:05,958 client.py[line:346] INFO client 6 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:42:28,117 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:42:36,454 client.py[line:346] INFO client 7 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:42:46,648 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:42:50,807 client.py[line:346] INFO client 8 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:43:00,625 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:43:06,664 client.py[line:346] INFO client 9 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:43:21,357 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:43:31,315 basePSmanager.py[line:151] INFO initial global model using Classifier from VAE in Round 6
+0 - 2025-05-21 04:43:32,898 ps_aggregator.py[line:166] INFO
+| VAE Phase Server Testing Round #6		Test Acc: 22.8100 Test Loss: 2.5460
+0 - 2025-05-21 04:43:32,898 basePSmanager.py[line:108] INFO ############Round 7 VAE #######################
+0 - 2025-05-21 04:43:32,898 basePSmanager.py[line:209] INFO VAE sampling client_indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+0 - 2025-05-21 04:43:32,899 client.py[line:346] INFO client 0 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:43:58,559 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:44:08,656 client.py[line:346] INFO client 1 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:44:16,918 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:44:21,928 client.py[line:346] INFO client 2 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:44:46,324 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:44:56,257 client.py[line:346] INFO client 3 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:44:59,312 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:45:00,511 client.py[line:346] INFO client 4 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:45:09,527 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:45:13,202 client.py[line:346] INFO client 5 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:45:34,357 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:45:42,429 client.py[line:346] INFO client 6 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:46:04,410 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:46:12,258 client.py[line:346] INFO client 7 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:46:22,427 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:46:26,384 client.py[line:346] INFO client 8 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:46:36,352 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:46:42,126 client.py[line:346] INFO client 9 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:46:57,165 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:47:06,928 basePSmanager.py[line:151] INFO initial global model using Classifier from VAE in Round 7
+0 - 2025-05-21 04:47:08,718 ps_aggregator.py[line:166] INFO
+| VAE Phase Server Testing Round #7		Test Acc: 23.8300 Test Loss: 2.4286
+0 - 2025-05-21 04:47:08,718 basePSmanager.py[line:108] INFO ############Round 8 VAE #######################
+0 - 2025-05-21 04:47:08,718 basePSmanager.py[line:209] INFO VAE sampling client_indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+0 - 2025-05-21 04:47:08,719 client.py[line:346] INFO client 0 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:47:34,613 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:47:44,617 client.py[line:346] INFO client 1 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:47:53,120 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:47:58,283 client.py[line:346] INFO client 2 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:48:23,840 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:48:33,754 client.py[line:346] INFO client 3 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:48:36,861 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:48:38,083 client.py[line:346] INFO client 4 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:48:47,636 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:48:51,301 client.py[line:346] INFO client 5 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:49:12,149 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:49:20,371 client.py[line:346] INFO client 6 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:49:42,151 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:49:50,699 client.py[line:346] INFO client 7 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:50:00,924 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:50:05,048 client.py[line:346] INFO client 8 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:50:15,034 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:50:21,102 client.py[line:346] INFO client 9 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:50:36,109 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:50:46,037 basePSmanager.py[line:151] INFO initial global model using Classifier from VAE in Round 8
+0 - 2025-05-21 04:50:47,692 ps_aggregator.py[line:166] INFO
+| VAE Phase Server Testing Round #8		Test Acc: 23.6600 Test Loss: 2.3203
+0 - 2025-05-21 04:50:47,693 basePSmanager.py[line:108] INFO ############Round 9 VAE #######################
+0 - 2025-05-21 04:50:47,693 basePSmanager.py[line:209] INFO VAE sampling client_indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+0 - 2025-05-21 04:50:47,693 client.py[line:346] INFO client 0 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:51:13,725 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:51:23,681 client.py[line:346] INFO client 1 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:51:31,840 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:51:36,929 client.py[line:346] INFO client 2 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:52:02,255 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:52:12,083 client.py[line:346] INFO client 3 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:52:15,332 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:52:16,575 client.py[line:346] INFO client 4 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:52:26,523 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:52:30,293 client.py[line:346] INFO client 5 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:52:51,264 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:52:59,533 client.py[line:346] INFO client 6 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:53:21,655 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:53:30,261 client.py[line:346] INFO client 7 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:53:40,717 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:53:44,811 client.py[line:346] INFO client 8 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:53:54,832 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:54:00,890 client.py[line:346] INFO client 9 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:54:16,332 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:54:25,831 basePSmanager.py[line:151] INFO initial global model using Classifier from VAE in Round 9
+0 - 2025-05-21 04:54:27,546 ps_aggregator.py[line:166] INFO
+| VAE Phase Server Testing Round #9		Test Acc: 23.2500 Test Loss: 2.3232
+0 - 2025-05-21 04:54:27,546 basePSmanager.py[line:108] INFO ############Round 10 VAE #######################
+0 - 2025-05-21 04:54:27,546 basePSmanager.py[line:209] INFO VAE sampling client_indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+0 - 2025-05-21 04:54:27,547 client.py[line:346] INFO client 0 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:54:52,230 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:55:01,887 client.py[line:346] INFO client 1 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:55:10,535 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:55:15,668 client.py[line:346] INFO client 2 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:55:41,111 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:55:50,992 client.py[line:346] INFO client 3 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:55:54,025 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:55:55,236 client.py[line:346] INFO client 4 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:56:04,111 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:56:07,932 client.py[line:346] INFO client 5 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:56:29,166 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:56:37,385 client.py[line:346] INFO client 6 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:56:59,329 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:57:07,907 client.py[line:346] INFO client 7 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:57:18,366 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:57:22,420 client.py[line:346] INFO client 8 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:57:32,310 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:57:38,456 client.py[line:346] INFO client 9 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:57:54,169 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:58:03,034 basePSmanager.py[line:151] INFO initial global model using Classifier from VAE in Round 10
+0 - 2025-05-21 04:58:04,775 ps_aggregator.py[line:166] INFO
+| VAE Phase Server Testing Round #10		Test Acc: 22.8200 Test Loss: 2.2449
+0 - 2025-05-21 04:58:04,775 basePSmanager.py[line:108] INFO ############Round 11 VAE #######################
+0 - 2025-05-21 04:58:04,775 basePSmanager.py[line:209] INFO VAE sampling client_indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+0 - 2025-05-21 04:58:04,776 client.py[line:346] INFO client 0 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:58:30,854 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:58:40,033 client.py[line:346] INFO client 1 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:58:48,318 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:58:53,483 client.py[line:346] INFO client 2 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:59:19,263 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:59:29,187 client.py[line:346] INFO client 3 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:59:32,257 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:59:33,482 client.py[line:346] INFO client 4 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:59:42,855 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:59:46,702 client.py[line:346] INFO client 5 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:00:07,714 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:00:15,927 client.py[line:346] INFO client 6 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:00:38,018 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:00:46,551 client.py[line:346] INFO client 7 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:00:56,747 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:01:00,870 client.py[line:346] INFO client 8 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:01:10,819 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:01:16,948 client.py[line:346] INFO client 9 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:01:31,931 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:01:41,627 basePSmanager.py[line:151] INFO initial global model using Classifier from VAE in Round 11
+0 - 2025-05-21 05:01:43,310 ps_aggregator.py[line:166] INFO
+| VAE Phase Server Testing Round #11		Test Acc: 23.0400 Test Loss: 2.2135
+0 - 2025-05-21 05:01:43,310 basePSmanager.py[line:108] INFO ############Round 12 VAE #######################
+0 - 2025-05-21 05:01:43,310 basePSmanager.py[line:209] INFO VAE sampling client_indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+0 - 2025-05-21 05:01:43,311 client.py[line:346] INFO client 0 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:02:09,323 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:02:19,460 client.py[line:346] INFO client 1 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:02:27,907 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:02:33,015 client.py[line:346] INFO client 2 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:02:58,363 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:03:08,429 client.py[line:346] INFO client 3 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:03:11,549 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:03:12,781 client.py[line:346] INFO client 4 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:03:22,046 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:03:25,856 client.py[line:346] INFO client 5 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:03:47,231 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:03:55,404 client.py[line:346] INFO client 6 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:04:17,815 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:04:26,475 client.py[line:346] INFO client 7 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:04:36,966 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:04:41,109 client.py[line:346] INFO client 8 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:04:51,009 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:04:57,172 client.py[line:346] INFO client 9 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:05:12,431 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:05:21,829 basePSmanager.py[line:151] INFO initial global model using Classifier from VAE in Round 12
+0 - 2025-05-21 05:05:23,559 ps_aggregator.py[line:166] INFO
+| VAE Phase Server Testing Round #12		Test Acc: 23.5300 Test Loss: 2.1661
+0 - 2025-05-21 05:05:23,560 basePSmanager.py[line:108] INFO ############Round 13 VAE #######################
+0 - 2025-05-21 05:05:23,560 basePSmanager.py[line:209] INFO VAE sampling client_indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+0 - 2025-05-21 05:05:23,560 client.py[line:346] INFO client 0 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:05:49,428 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:05:59,079 client.py[line:346] INFO client 1 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:06:07,620 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:06:12,771 client.py[line:346] INFO client 2 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:06:38,354 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:06:48,334 client.py[line:346] INFO client 3 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:06:51,457 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:06:52,723 client.py[line:346] INFO client 4 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:07:02,228 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:07:05,908 client.py[line:346] INFO client 5 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:07:26,552 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:07:34,278 client.py[line:346] INFO client 6 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:07:56,056 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:08:04,581 client.py[line:346] INFO client 7 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:08:15,114 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:08:19,209 client.py[line:346] INFO client 8 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:08:29,152 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:08:35,337 client.py[line:346] INFO client 9 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:08:50,732 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:09:00,336 basePSmanager.py[line:151] INFO initial global model using Classifier from VAE in Round 13
+0 - 2025-05-21 05:09:02,029 ps_aggregator.py[line:166] INFO
+| VAE Phase Server Testing Round #13		Test Acc: 23.0700 Test Loss: 2.2010
+0 - 2025-05-21 05:09:02,029 basePSmanager.py[line:108] INFO ############Round 14 VAE #######################
+0 - 2025-05-21 05:09:02,030 basePSmanager.py[line:209] INFO VAE sampling client_indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+0 - 2025-05-21 05:09:02,030 client.py[line:346] INFO client 0 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:09:27,549 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:09:37,210 client.py[line:346] INFO client 1 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:09:45,126 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:09:49,898 client.py[line:346] INFO client 2 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:10:15,654 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:10:25,567 client.py[line:346] INFO client 3 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:10:28,632 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:10:29,878 client.py[line:346] INFO client 4 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:10:39,125 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:10:42,866 client.py[line:346] INFO client 5 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:11:04,117 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:11:11,490 client.py[line:346] INFO client 6 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:11:33,125 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 05:11:41,703 client.py[line:346] INFO client 7 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 05:11:52,331 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+Traceback (most recent call last):
+  File "main.py", line 83, in <module>
+    fedavg_manager = FedAVGManager(device, cfg)
+  File "/root/FedFed/algorithms_standalone/fedavg/FedAVGManager.py", line 16, in __init__
+    super().__init__(device, args)
+  File "/root/FedFed/algorithms_standalone/basePS/basePSmanager.py", line 45, in __init__
+    self._share_data_step()
+  File "/root/FedFed/algorithms_standalone/basePS/basePSmanager.py", line 114, in _share_data_step
+    client.train_vae_model(round)
+  File "/root/FedFed/algorithms_standalone/basePS/client.py", line 357, in train_vae_model
+    self.train_whole_process(round, epoch, self.vae_optimizer, train_dataloader)
+  File "/root/FedFed/algorithms_standalone/basePS/client.py", line 290, in train_whole_process
+    loss.backward()
+  File "/root/miniconda3/envs/FedFed/lib/python3.8/site-packages/torch/_tensor.py", line 396, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/root/miniconda3/envs/FedFed/lib/python3.8/site-packages/torch/autograd/__init__.py", line 173, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

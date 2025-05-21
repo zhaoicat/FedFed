@@ -188,38 +188,49 @@ class NormalTrainer(object):
     def train_mix_dataloader(self, epoch, trainloader, device, **kwargs):
         self.model.to(device)
         self.model.train()
-        self.model.training =True
-
+        self.model.training = True
+        
+        # 添加混合精度训练
+        scaler = torch.cuda.amp.GradScaler()
+        
+        # 添加梯度累积
+        accumulation_steps = 4
+        
         loss_avg = AverageMeter()
         acc = AverageMeter()
 
         logging.info('\n=> Training Epoch #%d, LR=%.4f' % (epoch, self.optimizer.param_groups[0]['lr']))
-        for batch_idx, (x1, x2,x3, y1, y2,y3) in enumerate(trainloader):
-            x1, x2, x3, y1, y2,y3 = x1.to(device), x2.to(device), x3.to(device), \
+        for batch_idx, (x1, x2, x3, y1, y2, y3) in enumerate(trainloader):
+            x1, x2, x3, y1, y2, y3 = x1.to(device), x2.to(device), x3.to(device), \
                                     y1.to(device), y2.to(device), y3.to(device)
 
             batch_size = x1.size(0)
-            self.optimizer.zero_grad()
+            
+            # 使用混合精度训练
+            with torch.cuda.amp.autocast():
+                out = self.model(x)
+                loss = self.criterion(out, y)
 
-            x = torch.cat((x1, x2,x3))
-            y = torch.cat((y1,y2,y3))
+                # FedProx正则化
+                if self.args.fedprox:
+                    fed_prox_reg = 0.0
+                    previous_model = kwargs["previous_model"]
+                    for name, param in self.model.named_parameters():
+                        fed_prox_reg += ((self.args.fedprox_mu / 2) * \
+                            torch.norm((param - previous_model[name].data.to(device)))**2)
+                    loss += fed_prox_reg
+                
+                # 梯度累积
+                loss = loss / accumulation_steps
 
-            out = self.model(x)
-
-            loss = self.criterion(out, y)
-
-            # ========================FedProx=====================#
-            if self.args.fedprox:
-                fed_prox_reg = 0.0
-                previous_model = kwargs["previous_model"]
-                for name, param in self.model.named_parameters():
-                    fed_prox_reg += ((self.args.fedprox_mu / 2) * \
-                        torch.norm((param - previous_model[name].data.to(device)))**2)
-                loss += fed_prox_reg
-            # ========================FedProx=====================#
-
-            loss.backward()
-            self.optimizer.step()
+            # 使用scaler进行反向传播
+            scaler.scale(loss).backward()
+            
+            # 累积梯度后更新
+            if (batch_idx + 1) % accumulation_steps == 0:
+                scaler.step(self.optimizer)
+                scaler.update()
+                self.optimizer.zero_grad()
 
             # ========================SCAFFOLD=====================#
             if self.args.scaffold:

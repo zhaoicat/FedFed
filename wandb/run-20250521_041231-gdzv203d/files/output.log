@@ -1,0 +1,185 @@
+Files already downloaded and verified
+Files already downloaded and verified
+0 - 2025-05-21 04:12:33,812 loader.py[line:132] INFO dataset augmentation: default, resize: 32
+0 - 2025-05-21 04:12:35,089 loader.py[line:163] INFO /root/FedFed
+0 - 2025-05-21 04:12:35,091 loader.py[line:279] INFO partition_method = hetero
+0 - 2025-05-21 04:12:35,092 loader.py[line:291] INFO N = 50000
+0 - 2025-05-21 04:12:35,101 loader.py[line:223] INFO train_cls_local_counts_dict = {0: {0: 976, 1: 1632, 2: 18, 3: 1120, 5: 132, 7: 636, 8: 3101}, 1: {1: 1, 5: 59, 7: 3, 8: 851, 9: 4228}, 2: {1: 814, 2: 212, 3: 3735, 5: 2737}, 3: {0: 46, 1: 291, 3: 4, 8: 401, 9: 123}, 4: {0: 125, 2: 1, 3: 137, 4: 1476, 6: 303, 8: 642, 9: 47}, 5: {0: 1923, 1: 381, 2: 3826}, 6: {1: 334, 2: 3, 3: 3, 4: 2477, 5: 2055, 7: 1543}, 7: {0: 6, 1: 1546, 2: 881, 7: 591, 8: 4, 9: 6}, 8: {0: 435, 2: 58, 4: 1046, 5: 16, 6: 4536}, 9: {0: 1489, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 161, 7: 2227, 8: 1, 9: 596}}
+0 - 2025-05-21 04:12:35,101 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:12:35,102 loader.py[line:228] INFO train_dl_global number = 782
+0 - 2025-05-21 04:12:35,102 loader.py[line:229] INFO test_dl_global number = 157
+0 - 2025-05-21 04:12:35,109 loader.py[line:246] INFO client_ID = 0, local_train_sample_number = 7615, local_test_sample_number = 10000
+0 - 2025-05-21 04:12:35,110 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:12:35,110 loader.py[line:253] INFO client_index = 0, batch_num_train_local = 119, batch_num_test_local = 157
+0 - 2025-05-21 04:12:35,116 loader.py[line:246] INFO client_ID = 1, local_train_sample_number = 5142, local_test_sample_number = 10000
+0 - 2025-05-21 04:12:35,117 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:12:35,117 loader.py[line:253] INFO client_index = 1, batch_num_train_local = 81, batch_num_test_local = 157
+0 - 2025-05-21 04:12:35,125 loader.py[line:246] INFO client_ID = 2, local_train_sample_number = 7498, local_test_sample_number = 10000
+0 - 2025-05-21 04:12:35,125 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:12:35,125 loader.py[line:253] INFO client_index = 2, batch_num_train_local = 118, batch_num_test_local = 157
+0 - 2025-05-21 04:12:35,128 loader.py[line:246] INFO client_ID = 3, local_train_sample_number = 865, local_test_sample_number = 10000
+0 - 2025-05-21 04:12:35,128 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:12:35,128 loader.py[line:253] INFO client_index = 3, batch_num_train_local = 14, batch_num_test_local = 157
+0 - 2025-05-21 04:12:35,133 loader.py[line:246] INFO client_ID = 4, local_train_sample_number = 2731, local_test_sample_number = 10000
+0 - 2025-05-21 04:12:35,133 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:12:35,133 loader.py[line:253] INFO client_index = 4, batch_num_train_local = 43, batch_num_test_local = 157
+0 - 2025-05-21 04:12:35,140 loader.py[line:246] INFO client_ID = 5, local_train_sample_number = 6130, local_test_sample_number = 10000
+0 - 2025-05-21 04:12:35,140 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:12:35,140 loader.py[line:253] INFO client_index = 5, batch_num_train_local = 96, batch_num_test_local = 157
+0 - 2025-05-21 04:12:35,150 loader.py[line:246] INFO client_ID = 6, local_train_sample_number = 6415, local_test_sample_number = 10000
+0 - 2025-05-21 04:12:35,150 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:12:35,150 loader.py[line:253] INFO client_index = 6, batch_num_train_local = 101, batch_num_test_local = 157
+0 - 2025-05-21 04:12:35,155 loader.py[line:246] INFO client_ID = 7, local_train_sample_number = 3034, local_test_sample_number = 10000
+0 - 2025-05-21 04:12:35,156 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:12:35,156 loader.py[line:253] INFO client_index = 7, batch_num_train_local = 48, batch_num_test_local = 157
+0 - 2025-05-21 04:12:35,164 loader.py[line:246] INFO client_ID = 8, local_train_sample_number = 6091, local_test_sample_number = 10000
+0 - 2025-05-21 04:12:35,164 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:12:35,164 loader.py[line:253] INFO client_index = 8, batch_num_train_local = 96, batch_num_test_local = 157
+0 - 2025-05-21 04:12:35,170 loader.py[line:246] INFO client_ID = 9, local_train_sample_number = 4479, local_test_sample_number = 10000
+0 - 2025-05-21 04:12:35,170 loader.py[line:193] INFO shuffle: True, drop_last:False, train_sampler:None
+0 - 2025-05-21 04:12:35,171 loader.py[line:253] INFO client_index = 9, batch_num_train_local = 70, batch_num_test_local = 157
+0 - 2025-05-21 04:12:35,171 FedAVGManager.py[line:47] INFO ############setup_clients (START)#############
+0 - 2025-05-21 04:12:35,316 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:35,317 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:12:35,317 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:12:35,378 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:35,379 ps_client_trainer.py[line:18] INFO Initializing client: 0 len(train_data) (local data num): 7615
+0 - 2025-05-21 04:12:35,379 client.py[line:34] INFO client 0 VAE Moel set up
+0 - 2025-05-21 04:12:35,380 client.py[line:52] INFO None
+0 - 2025-05-21 04:12:35,511 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:35,512 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:12:35,512 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:12:35,573 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:35,574 ps_client_trainer.py[line:18] INFO Initializing client: 1 len(train_data) (local data num): 5142
+0 - 2025-05-21 04:12:35,574 client.py[line:34] INFO client 1 VAE Moel set up
+0 - 2025-05-21 04:12:35,574 client.py[line:52] INFO 2
+0 - 2025-05-21 04:12:35,705 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:35,705 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:12:35,706 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:12:35,767 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:35,768 ps_client_trainer.py[line:18] INFO Initializing client: 2 len(train_data) (local data num): 7498
+0 - 2025-05-21 04:12:35,768 client.py[line:34] INFO client 2 VAE Moel set up
+0 - 2025-05-21 04:12:35,768 client.py[line:52] INFO None
+0 - 2025-05-21 04:12:35,898 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:35,898 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:12:35,898 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:12:35,961 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:35,961 ps_client_trainer.py[line:18] INFO Initializing client: 3 len(train_data) (local data num): 865
+0 - 2025-05-21 04:12:35,961 client.py[line:34] INFO client 3 VAE Moel set up
+0 - 2025-05-21 04:12:35,962 client.py[line:52] INFO 1
+0 - 2025-05-21 04:12:36,091 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:36,091 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:12:36,091 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:12:36,153 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:36,153 ps_client_trainer.py[line:18] INFO Initializing client: 4 len(train_data) (local data num): 2731
+0 - 2025-05-21 04:12:36,153 client.py[line:34] INFO client 4 VAE Moel set up
+0 - 2025-05-21 04:12:36,154 client.py[line:52] INFO None
+0 - 2025-05-21 04:12:36,283 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:36,283 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:12:36,284 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:12:36,347 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:36,348 ps_client_trainer.py[line:18] INFO Initializing client: 5 len(train_data) (local data num): 6130
+0 - 2025-05-21 04:12:36,348 client.py[line:34] INFO client 5 VAE Moel set up
+0 - 2025-05-21 04:12:36,348 client.py[line:52] INFO None
+0 - 2025-05-21 04:12:36,478 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:36,478 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:12:36,478 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:12:36,540 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:36,540 ps_client_trainer.py[line:18] INFO Initializing client: 6 len(train_data) (local data num): 6415
+0 - 2025-05-21 04:12:36,540 client.py[line:34] INFO client 6 VAE Moel set up
+0 - 2025-05-21 04:12:36,541 client.py[line:52] INFO None
+0 - 2025-05-21 04:12:36,732 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:36,733 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:12:36,733 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:12:36,794 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:36,795 ps_client_trainer.py[line:18] INFO Initializing client: 7 len(train_data) (local data num): 3034
+0 - 2025-05-21 04:12:36,795 client.py[line:34] INFO client 7 VAE Moel set up
+0 - 2025-05-21 04:12:36,795 client.py[line:52] INFO None
+0 - 2025-05-21 04:12:36,924 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:36,924 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:12:36,925 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:12:36,986 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:36,986 ps_client_trainer.py[line:18] INFO Initializing client: 8 len(train_data) (local data num): 6091
+0 - 2025-05-21 04:12:36,986 client.py[line:34] INFO client 8 VAE Moel set up
+0 - 2025-05-21 04:12:36,987 client.py[line:52] INFO 2
+0 - 2025-05-21 04:12:37,116 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:37,116 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:12:37,116 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:12:37,182 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:37,183 ps_client_trainer.py[line:18] INFO Initializing client: 9 len(train_data) (local data num): 4479
+0 - 2025-05-21 04:12:37,183 client.py[line:34] INFO client 9 VAE Moel set up
+0 - 2025-05-21 04:12:37,184 client.py[line:52] INFO None
+0 - 2025-05-21 04:12:37,184 FedAVGManager.py[line:72] INFO ############setup_clients (END)#############
+0 - 2025-05-21 04:12:37,184 FedAVGManager.py[line:24] INFO ############_setup_server (START)#############
+0 - 2025-05-21 04:12:37,184 build.py[line:16] INFO model name: resnet18_v2
+0 - 2025-05-21 04:12:37,184 build.py[line:34] INFO ResNet18_v2
+0 - 2025-05-21 04:12:37,248 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:37,382 resnet_v2.py[line:101] INFO [64, 64, 128, 256, 512]
+0 - 2025-05-21 04:12:37,383 FedAVGManager.py[line:43] INFO ############_setup_server (END)#############
+0 - 2025-05-21 04:12:37,383 basePSmanager.py[line:108] INFO ############Round 0 VAE #######################
+0 - 2025-05-21 04:12:37,383 basePSmanager.py[line:209] INFO VAE sampling client_indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+0 - 2025-05-21 04:12:37,384 client.py[line:346] INFO client 0 is going to train own VAE-model to generate RX GX and RXnoise
+/root/FedFed/utils/set.py:246: UserWarning: This overload of add_ is deprecated:
+	add_(Number alpha, Tensor other)
+Consider using one of the following signatures instead:
+	add_(Tensor other, *, Number alpha) (Triggered internally at  ../torch/csrc/utils/python_arg_parser.cpp:1174.)
+  exp_avg.mul_(beta1).add_(1 - beta1, grad)
+0 - 2025-05-21 04:13:05,420 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:13:15,000 client.py[line:346] INFO client 1 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:13:23,345 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:13:28,151 client.py[line:346] INFO client 2 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:13:51,729 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:14:00,785 client.py[line:346] INFO client 3 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:14:03,652 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:14:04,685 client.py[line:346] INFO client 4 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:14:13,251 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:14:16,679 client.py[line:346] INFO client 5 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:14:36,228 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:14:44,031 client.py[line:346] INFO client 6 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:15:04,155 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:15:12,021 client.py[line:346] INFO client 7 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:15:21,728 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:15:25,626 client.py[line:346] INFO client 8 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:15:34,838 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:15:40,434 client.py[line:346] INFO client 9 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:15:54,629 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:16:01,323 basePSmanager.py[line:151] INFO initial global model using Classifier from VAE in Round 0
+0 - 2025-05-21 04:16:03,284 ps_aggregator.py[line:166] INFO
+| VAE Phase Server Testing Round #0		Test Acc: 10.0000 Test Loss: 2.5337
+0 - 2025-05-21 04:16:03,284 basePSmanager.py[line:108] INFO ############Round 1 VAE #######################
+0 - 2025-05-21 04:16:03,285 basePSmanager.py[line:209] INFO VAE sampling client_indexes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+0 - 2025-05-21 04:16:03,285 client.py[line:346] INFO client 0 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:16:29,246 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:16:38,381 client.py[line:346] INFO client 1 is going to train own VAE-model to generate RX GX and RXnoise
+0 - 2025-05-21 04:16:46,912 client.py[line:252] INFO
+=> Training Epoch #1, LR=0.0010
+0 - 2025-05-21 04:16:52,079 client.py[line:346] INFO client 2 is going to train own VAE-model to generate RX GX and RXnoise
+Traceback (most recent call last):
+  File "main.py", line 83, in <module>
+    fedavg_manager = FedAVGManager(device, cfg)
+  File "/root/FedFed/algorithms_standalone/fedavg/FedAVGManager.py", line 16, in __init__
+    super().__init__(device, args)
+  File "/root/FedFed/algorithms_standalone/basePS/basePSmanager.py", line 45, in __init__
+    self._share_data_step()
+  File "/root/FedFed/algorithms_standalone/basePS/basePSmanager.py", line 114, in _share_data_step
+    client.train_vae_model(round)
+  File "/root/FedFed/algorithms_standalone/basePS/client.py", line 354, in train_vae_model
+    self.aug_VAE_train(round, epoch, self.vae_optimizer, aug_vae_dataloader)
+  File "/root/FedFed/algorithms_standalone/basePS/client.py", line 236, in aug_VAE_train
+    aug_loss.backward()
+  File "/root/miniconda3/envs/FedFed/lib/python3.8/site-packages/torch/_tensor.py", line 396, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/root/miniconda3/envs/FedFed/lib/python3.8/site-packages/torch/autograd/__init__.py", line 173, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

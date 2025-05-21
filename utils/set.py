@@ -64,6 +64,10 @@ def set_random_seed(seed):
     torch.manual_seed(seed)
     torch.cuda.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
+    
+    # 添加CUDA优化配置
+    torch.backends.cudnn.benchmark = True
+    torch.backends.cudnn.deterministic = True
 
 class Logger:
     """Write console output to external text file.

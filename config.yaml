@@ -1,6 +1,15 @@
 dataset: 'cifar10'
 data_dir: './../data'
 
+# 训练相关配置
+training:
+  batch_size: 2048  # 训练批次大小
+  num_workers: 24   # 数据加载的工作进程数
+  pin_memory: true  # 是否将数据加载到固定内存中
+  prefetch_factor: 2  # 预加载因子
+  persistent_workers: true  # 是否保持工作进程存活
+  accumulation_steps: 8  # 梯度累积步数
+  use_amp: true  # 是否使用混合精度训练
 
 client_num_in_total: 10
 client_num_per_round: 5
@@ -10,15 +19,13 @@ num_classes: 10 # 10 for CIFAR-10, SVHN, FMNIST and 100 for CIFAR-100
 model_input_channels: 3 # 3 for CIFAR-10, SVHN, CIFAR-100 and 1 for FMNIST
 
 record_tool: 'wandb'  # using wandb or tensorboard
-wandb_record: True
+wandb_record: False
 
 #     tuning these 4 parametes for VAE 
-
-VAE_re: 5.0
-VAE_ce: 2.0
-VAE_kl: 0.005
-VAE_x_ce: 0.4
-
+VAE_re: 10.0 #5.0
+VAE_ce: 4.0 #2.0
+VAE_kl: 0.001 #0.005
+VAE_x_ce: 0.8 #0.4
 
 #    strength of noise
 VAE_std1: 0.2
