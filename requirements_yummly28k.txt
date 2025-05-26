@@ -1,0 +1,7 @@
+# Yummly28k数据集依赖包
+torch>=2.0.0
+torchvision>=0.15.0
+numpy>=1.21.0
+Pillow>=8.0.0
+requests>=2.25.0
+tqdm>=4.60.0 

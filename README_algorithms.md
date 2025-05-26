@@ -4,26 +4,30 @@
 
 ## 🚀 快速开始
 
+### 安装
+pip install -r requirements_yummly28k.txt
 
 ### 快速测试
-
 
 这将在几分钟内完成所有算法的测试，并生成比较报告。
 
 ## 📊 支持的算法
 
 ### 1. FedAvg (联邦平均)
+
 - **描述**: 经典的联邦学习算法，通过加权平均聚合客户端模型
 - **特点**: 简单有效，适合IID数据分布
 - **论文**: Communication-Efficient Learning of Deep Networks from Decentralized Data
 
 ### 2. FedProx (联邦近端)
+
 - **描述**: 在FedAvg基础上添加近端项，提高Non-IID场景下的稳定性
 - **特点**: 通过近端项约束客户端模型不偏离全局模型太远
 - **参数**: `fedprox_mu` (近端项系数，默认0.1)
 - **论文**: Federated Optimization in Heterogeneous Networks
 
 ### 3. PFedMe (个性化联邦学习)
+
 - **描述**: 支持个性化的联邦学习算法，每个客户端维护个性化模型
 - **特点**: 适合客户端数据分布差异较大的场景
 - **参数**: 
@@ -34,6 +38,7 @@
 - **论文**: Personalized Federated Learning with Moreau Envelopes
 
 ### 4. FedFed (特征蒸馏联邦学习)
+
 - **描述**: 基于特征蒸馏的联邦学习框架，通过VAE生成共享数据
 - **特点**: 通过特征蒸馏提高模型性能，适合数据隐私要求高的场景
 - **论文**: FedFed: Feature Distillation against Data Heterogeneity in Federated Learning
@@ -48,15 +53,15 @@ python main.py --config_file config_yummly28k_test.yaml --algorithm fedavg --out
 
 
 # 运行FedProx算法
-python main.py --config_file config_yummly28k_test.yaml --algorithm FedProx --output_dir enhanced_results/fedavg
+python main.py --config_file config_yummly28k_test.yaml --algorithm FedProx --output_dir enhanced_results/FedProx
 
 
 # 运行PFedMe算法
-python main.py --config_file config_yummly28k_test.yaml --algorithm PFedMe --output_dir enhanced_results/fedavg
+python main.py --config_file config_yummly28k_test.yaml --algorithm PFedMe --output_dir enhanced_results/PFedMe
 
 
 # 运行FedFed算法
-python main.py --config_file config_yummly28k_test.yaml --algorithm FedFed --output_dir enhanced_results/fedavg
+python main.py --config_file config_yummly28k_test.yaml --algorithm FedFed --output_dir enhanced_results/FedFed
 
 ```
 
