@@ -27,6 +27,8 @@ class FedAVGManager(BasePSManager):
         init_state_kargs = {} 
         if self.args.VAE:
             VAE_model = FL_CVAE_cifar(args=self.args, d=self.args.VAE_d, z=self.args.VAE_z, device=self.device)
+        else:
+            VAE_model = None
 
         model_trainer = create_trainer(   
             self.args, self.device, model,train_data_global_num=self.train_data_global_num,
@@ -50,6 +52,8 @@ class FedAVGManager(BasePSManager):
         for client_index in range(self.number_instantiated_client):
             if self.args.VAE:
                 VAE_model = FL_CVAE_cifar(args=self.args, d=self.args.VAE_d, z=self.args.VAE_z, device=self.device)
+            else:
+                VAE_model = None
 
             model = create_model(self.args, model_name=self.args.model, output_dim=self.args.model_output_dim,
                             device=self.device, **self.other_params)

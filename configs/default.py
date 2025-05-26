@@ -1,4 +1,3 @@
-
 # from .config import CfgNode as CN
 from .config import CfgNode as CN
 
@@ -20,6 +19,12 @@ _C.algorithm = 'FedAvg'
 _C.fedprox = False
 _C.fedprox_mu = 0.1
 _C.scaffold = False
+
+# PFedMe parameters
+_C.pfedme_beta = 1.0
+_C.pfedme_lamda = 15.0
+_C.pfedme_K = 5
+_C.pfedme_personal_lr = 0.01
 
 _C.global_epochs_per_round = 1
 _C.comm_round = 1000

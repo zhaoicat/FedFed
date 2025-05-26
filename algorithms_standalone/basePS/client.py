@@ -17,7 +17,7 @@ from model.FL_VAE import *
 from optim.AdamW import AdamW
 from utils.tool import *
 from utils.set import *
-from data_preprocessing.cifar10.datasets import Dataset_Personalize, Dataset_3Types_ImageData
+from data_preprocessing.cifar10.datasets import Dataset_Personalize, Dataset_3Types_ImageData, Dataset_Personalize_PIL, Dataset_3Types_ImageData_PIL
 import torchvision.transforms as transforms
 from utils.log_info import log_info
 from utils.randaugment4fixmatch import RandAugmentMC, Cutout, RandAugment_no_CutOut 
@@ -30,50 +30,65 @@ class Client(PSTrainer):
                  test_data_num, train_cls_counts_dict, device, args, model_trainer, vae_model, dataset_num):
         super().__init__(client_index, train_ori_data, train_ori_targets, test_dataloader, train_data_num,
                          test_data_num, device, args, model_trainer)
-        if args.VAE == True and vae_model is not None:
-            logging.info(f"client {self.client_index} VAE Moel set up")
-            self.vae_model = vae_model
-
+        
+        # 首先设置基本属性
         self.test_dataloader = test_dataloader
-        self.train_ori_data = train_ori_data  
+        self.train_ori_data = train_ori_data
         self.train_ori_targets = train_ori_targets
         self.train_cls_counts_dict = train_cls_counts_dict
         self.dataset_num = dataset_num
-
         self.local_num_iterations = math.ceil(len(self.train_ori_data) / self.args.batch_size)
 
-# -------------------------VAE optimization tool for different client------------------------#
-        self.vae_optimizer =  AdamW([
-            {'params': self.vae_model.parameters()}
-        ], lr=1.e-3, betas=(0.9, 0.999), weight_decay=1.e-6)
+        # 只有当VAE=True且vae_model不为None时才初始化VAE相关功能
+        if args.VAE and vae_model is not None:
+            logging.info(f"client {self.client_index} VAE Model set up")
+            self.vae_model = vae_model
+            # VAE optimization tool for different client
+            self.vae_optimizer = AdamW([
+                {'params': self.vae_model.parameters()}
+            ], lr=1.e-3, betas=(0.9, 0.999), weight_decay=1.e-6)
+        else:
+            self.vae_model = None
+            self.vae_optimizer = None
+
         self._construct_train_ori_dataloader()
-        if self.args.VAE_adaptive:
+        if self.args.VAE and hasattr(self.args, 'VAE_adaptive') and self.args.VAE_adaptive:
             self._set_local_traindata_property()
             logging.info(self.local_traindata_property)
 
+    def _get_dataset_class(self):
+        """根据数据集类型选择合适的Dataset类"""
+        if self.args.dataset == 'yummly28k':
+            return Dataset_Personalize_PIL, Dataset_3Types_ImageData_PIL
+        else:
+            return Dataset_Personalize, Dataset_3Types_ImageData
+
     def _construct_train_ori_dataloader(self):
-        # ---------------------generate local train dataloader for Fed Step--------------------------#
-        train_ori_transform = transforms.Compose([])
-        if self.args.dataset == 'fmnist':
-            train_ori_transform.transforms.append(transforms.Resize(32))
-        train_ori_transform.transforms.append(transforms.RandomCrop(32, padding=4))
-        train_ori_transform.transforms.append(transforms.RandomHorizontalFlip())
-        if self.args.dataset not in ['fmnist']:
-            train_ori_transform.transforms.append(RandAugmentMC(n=2, m=10))
-        train_ori_transform.transforms.append(transforms.ToTensor())
+        # 根据数据集类型选择合适的Dataset类
+        DatasetClass, _ = self._get_dataset_class()
         
-        train_ori_dataset = Dataset_Personalize(self.train_ori_data, self.train_ori_targets,
-                                                transform=train_ori_transform)
-        train_loader = DataLoader(
-            train_ori_dataset,
-            batch_size=self.args.training['batch_size'],
-            num_workers=self.args.training['num_workers'],
-            pin_memory=self.args.training['pin_memory'],
-            prefetch_factor=self.args.training['prefetch_factor'],
-            persistent_workers=self.args.training['persistent_workers'],
-            shuffle=True,
-            drop_last=False
-        )
+        train_transform = transforms.Compose([])
+        if self.args.dataset == 'fmnist':
+            train_transform.transforms.append(transforms.Resize(32))
+        train_transform.transforms.append(transforms.ToTensor())
+        
+        train_dataset = DatasetClass(self.train_ori_data, self.train_ori_targets, train_transform)
+        
+        # 配置DataLoader参数
+        dataloader_kwargs = {
+            'dataset': train_dataset,
+            'batch_size': self.args.batch_size,
+            'shuffle': True,
+            'drop_last': False,
+            'num_workers': 0,  # 禁用多进程
+            'pin_memory': False  # 禁用pin_memory
+        }
+        
+        # 只有当num_workers > 0时才设置prefetch_factor
+        if dataloader_kwargs['num_workers'] > 0:
+            dataloader_kwargs['prefetch_factor'] = 2
+        
+        train_loader = DataLoader(**dataloader_kwargs)
         self.local_train_dataloader = train_loader
 
     def _attack(self,size, mean, std):  #
@@ -315,7 +330,12 @@ class Client(PSTrainer):
                            loss_kl.avg, top1.avg))
 
 
-    def train_vae_model(self,round):
+    def train_vae_model(self, round):
+        # 如果VAE被禁用，直接跳过
+        if not self.args.VAE or self.vae_model is None:
+            logging.info(f"client {self.client_index} skipping VAE training (VAE disabled)")
+            return
+
         train_transform = transforms.Compose([])
         aug_vae_transform_train = transforms.Compose([])
         if self.args.dataset == 'fmnist':
@@ -332,12 +352,12 @@ class Client(PSTrainer):
         if self.args.dataset not in ['fmnist']:
             aug_vae_transform_train.transforms.append(RandAugment_no_CutOut(n=2, m=10))
         aug_vae_transform_train.transforms.append(transforms.ToTensor())
-        
 
-
-        train_dataset = Dataset_Personalize(self.train_ori_data, self.train_ori_targets, transform=train_transform)
-        aug_vae_dataset = Dataset_Personalize(self.train_ori_data, self.train_ori_targets,
-                                              transform=aug_vae_transform_train)
+        # 根据数据集类型选择合适的Dataset类
+        DatasetClass, _ = self._get_dataset_class()
+        train_dataset = DatasetClass(self.train_ori_data, self.train_ori_targets, transform=train_transform)
+        aug_vae_dataset = DatasetClass(self.train_ori_data, self.train_ori_targets,
+                                      transform=aug_vae_transform_train)
         train_dataloader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=32, shuffle=True,
                                                        drop_last=False)
         aug_vae_dataloader = torch.utils.data.DataLoader(dataset=aug_vae_dataset, batch_size=32, shuffle=True,
@@ -349,8 +369,8 @@ class Client(PSTrainer):
         start_epoch = 1
         for epoch in range(start_epoch, start_epoch + self.args.VAE_local_epoch):
             self.aug_classifier_train(round, epoch, self.vae_optimizer, train_dataloader)
-            if self.args.VAE_adaptive == True:
-                if self.local_traindata_property == 1 or self.local_traindata_property == None:
+            if hasattr(self.args, 'VAE_adaptive') and self.args.VAE_adaptive:
+                if self.local_traindata_property == 1 or self.local_traindata_property is None:
                     self.aug_VAE_train(round, epoch, self.vae_optimizer, aug_vae_dataloader)
             else:
                 self.aug_VAE_train(round, epoch, self.vae_optimizer, aug_vae_dataloader)
@@ -358,21 +378,31 @@ class Client(PSTrainer):
         self.vae_model.cpu()
 
     def generate_data_by_vae(self):
+        # 如果VAE被禁用，跳过数据生成
+        if not self.args.VAE or self.vae_model is None:
+            logging.info(f"client {self.client_index} skipping VAE data generation (VAE disabled)")
+            # 设置空的共享数据
+            self.local_share_data1 = None
+            self.local_share_data2 = None
+            self.local_share_data_y = None
+            return
+
         data = self.train_ori_data
         targets = self.train_ori_targets
         generate_transform = transforms.Compose([])
         if self.args.dataset == 'fmnist':
             generate_transform.transforms.append(transforms.Resize(32))
         generate_transform.transforms.append(transforms.ToTensor())
-        
-        generate_dataset = Dataset_Personalize(data, targets, transform=generate_transform)
+
+        # 根据数据集类型选择合适的Dataset类
+        DatasetClass, _ = self._get_dataset_class()
+        generate_dataset = DatasetClass(data, targets, transform=generate_transform)
         generate_dataloader = torch.utils.data.DataLoader(dataset=generate_dataset, batch_size=self.args.VAE_batch_size,
                                                           shuffle=False, drop_last=False)
 
         self.vae_model.to(self.device)
         self.vae_model.eval()
 
-        
         with torch.no_grad():
             for batch_idx, (x, y) in enumerate(generate_dataloader):
                 # distribute data to device
@@ -390,11 +420,10 @@ class Client(PSTrainer):
                     self.local_share_data2 = torch.cat((self.local_share_data2, rx_noise2))
                     self.local_share_data_y = torch.cat((self.local_share_data_y, y))
 
-
-
-
     # got the classifier parameter from the whole VAE model
     def get_generate_model_classifer_para(self):
+        if self.vae_model is None:
+            return None
         return deepcopy(self.vae_model.get_classifier().cpu().state_dict())
 
     # receive data from server
@@ -406,7 +435,6 @@ class Client(PSTrainer):
         self.global_share_data1 = data1.cpu()
         self.global_share_y = y.cpu()
         self.global_share_data2 = data2.cpu()
-
 
     def sample_iid_data_from_share_dataset(self,share_data1,share_data2, share_y, share_data_mode = 1):
         random.seed(random.randint(0,10000))
@@ -449,8 +477,7 @@ class Client(PSTrainer):
 
 
     def construct_mix_dataloader(self, share_data1, share_data2, share_y, round):
-
-        # two dataloader inclue shared data from server and local origin dataloader
+        # two dataloader include shared data from server and local origin dataloader
         train_ori_transform = transforms.Compose([])
         if self.args.dataset == 'fmnist':
             train_ori_transform.transforms.append(transforms.Resize(32))
@@ -459,29 +486,34 @@ class Client(PSTrainer):
         if self.args.dataset not in ['fmnist']:
             train_ori_transform.transforms.append(RandAugmentMC(n=3, m=10))
         train_ori_transform.transforms.append(transforms.ToTensor())
-        # train_ori_transform.transforms.append(transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2470, 0.2435, 0.2616)))
 
         train_share_transform = transforms.Compose([
             transforms.RandomCrop(32, padding=4),
             transforms.RandomHorizontalFlip(),
-            #Aug_Cutout(),
+            # Aug_Cutout(),
         ])
         epoch_data1, epoch_label1 = self.sample_iid_data_from_share_dataset(share_data1, share_data2, share_y, share_data_mode=1)
         epoch_data2, epoch_label2 = self.sample_iid_data_from_share_dataset(share_data1, share_data2, share_y, share_data_mode=2)
 
-        train_dataset = Dataset_3Types_ImageData(self.train_ori_data, epoch_data1,epoch_data2,
-                                                 self.train_ori_targets,epoch_label1,epoch_label2,
-                                                 transform=train_ori_transform,
-                                                 share_transform=train_share_transform)
+        # 根据数据集类型选择合适的Dataset类
+        _, DatasetClass3Types = self._get_dataset_class()
+        train_dataset = DatasetClass3Types(self.train_ori_data, epoch_data1, epoch_data2,
+                                          self.train_ori_targets, epoch_label1, epoch_label2,
+                                          transform=train_ori_transform,
+                                          share_transform=train_share_transform)
         self.local_train_mixed_dataloader = torch.utils.data.DataLoader(dataset=train_dataset,
-                                                                  batch_size=32, 
+                                                                  batch_size=32,
                                                                   shuffle=True,
                                                                   num_workers=4,  # 添加工作进程
                                                                   pin_memory=True,  # 使用固定内存
                                                                   drop_last=False)
 
 
-    def get_local_share_data(self, noise_mode):  # noise_mode means get RXnoise2 or RXnoise2
+    def get_local_share_data(self, noise_mode):  # noise_mode means get RXnoise1 or RXnoise2
+        if not self.args.VAE or self.vae_model is None:
+            # 当VAE被禁用时，返回空数据
+            return None, None
+        
         if self.local_share_data1 is not None and noise_mode == 1:
             return self.local_share_data1, self.local_share_data_y
         elif self.local_share_data2 is not None and noise_mode == 2:
@@ -491,22 +523,22 @@ class Client(PSTrainer):
 
     def check_end_epoch(self):
         return (
-                    self.client_timer.local_outer_iter_idx > 0 and self.client_timer.local_outer_iter_idx % self.local_num_iterations == 0)
-
+            self.client_timer.local_outer_iter_idx > 0 and 
+            self.client_timer.local_outer_iter_idx % self.local_num_iterations == 0)
 
     def move_vae_to_cpu(self):
+        if not self.args.VAE or self.vae_model is None:
+            return
         if str(next(self.vae_model.parameters()).device) == 'cpu':
             pass
         else:
             self.vae_model = self.vae_model.to('cpu')
-
 
     def move_to_cpu(self):
         if str(next(self.trainer.model.parameters()).device) == 'cpu':
             pass
         else:
             self.trainer.model = self.trainer.model.to('cpu')
-            # optimizer_to(self.trainer.optimizer, 'cpu')
 
         if len(list(self.trainer.optimizer.state.values())) > 0:
             optimizer_to(self.trainer.optimizer, 'cpu')
@@ -517,7 +549,6 @@ class Client(PSTrainer):
         else:
             pass
 
-        # logging.info(self.trainer.optimizer.state.values())
         if len(list(self.trainer.optimizer.state.values())) > 0:
             optimizer_to(self.trainer.optimizer, device)
 
@@ -541,7 +572,7 @@ class Client(PSTrainer):
         return:
         @named_params:   all the parameters in model: {parameters_name: parameters_values}
         @params_indexes:  None
-        @local_sample_number: the number of traning set in local
+        @local_sample_number: the number of training set in local
         @other_client_params: in FedAvg is {}
         @local_train_tracker_info:
         @local_time_info:  using this by local_time_info['local_time_info'] = {client_index:   , local_comm_round_idx:,   local_outer_epoch_idx:,   ...}
@@ -562,9 +593,12 @@ class Client(PSTrainer):
                 shared_params_for_simulation
 
     def set_vae_para(self, para_dict):
-        self.vae_model.load_state_dict(para_dict)
+        if self.vae_model is not None and para_dict is not None:
+            self.vae_model.load_state_dict(para_dict)
 
     def get_vae_para(self):
+        if self.vae_model is None:
+            return None
         return deepcopy(self.vae_model.cpu().state_dict())
 
     @abstractmethod

@@ -102,30 +102,40 @@ class BasePSManager(object):
         pass
 
     def _share_data_step(self):
-        for round in range(self.args.VAE_comm_round):
+        # 如果VAE被禁用，跳过整个VAE训练步骤
+        if not self.args.VAE:
+            logging.info("VAE is disabled, skipping VAE training and data sharing steps")
+            # 设置空的全局共享数据
+            self.global_share_dataset1 = None
+            self.global_share_dataset2 = None
+            self.global_share_data_y = None
+            return
 
-# -------------------train VAE for every client----------------#
+        for round in range(self.args.VAE_comm_round):
+            # train VAE for every client
             logging.info("############Round {} VAE #######################".format(round))
 
-# ----------------- sample client duiring VAE step------------------#
+            # sample client during VAE step
             client_indexes = self.client_sample_for_VAE(round, self.args.client_num_in_total, self.args.VAE_client_num_per_round)
             for client_index in client_indexes:
                 client = self.client_list[client_index]
                 client.train_vae_model(round)
 
-#------------------aggregate VAE from sampled client----------------------------------------#
-            self._aggregate_sampled_client_vae(client_indexes, round)  # using
-
+            # aggregate VAE from sampled client
+            self._aggregate_sampled_client_vae(client_indexes, round)
 
             self.aggregator.test_on_server_by_vae(round)
-        # vae_model = torch.load("vae_model_client100_alpha0.1_datasetcifar100.pth")
+
+        # Generate data by VAE for all clients
         for client in self.client_list:
             client.generate_data_by_vae()
-          
-        for client in self.client_list:
-            del client.vae_model
-        self._get_local_shared_data()
 
+        # Clean up VAE models to save memory
+        for client in self.client_list:
+            if hasattr(client, 'vae_model') and client.vae_model is not None:
+                del client.vae_model
+
+        self._get_local_shared_data()
         self.aggregator.save_vae_param()
 
     def _aggregate_sampled_client_vae(self,client_indexes, round):
@@ -155,10 +165,21 @@ class BasePSManager(object):
             client.set_vae_para(averaged_vae_params)
 
     def _get_local_shared_data(self):
+        # 如果VAE被禁用，设置空的共享数据
+        if not self.args.VAE:
+            self.global_share_dataset1 = None
+            self.global_share_dataset2 = None
+            self.global_share_data_y = None
+            return
+
         # in test step using two types shared data
         for client_idx in range(len(self.client_list)):
             client_data1, data_y = self.client_list[client_idx].get_local_share_data(noise_mode=1)
             client_data2, _ = self.client_list[client_idx].get_local_share_data(noise_mode=2)
+
+            # 检查是否有有效的共享数据
+            if client_data1 is None or client_data2 is None:
+                continue
 
             if client_idx == 0:
                 self.global_share_dataset1 = client_data1
@@ -169,6 +190,11 @@ class BasePSManager(object):
                 self.global_share_dataset2 = torch.cat((self.global_share_dataset2, client_data2))
                 self.global_share_data_y = torch.cat((self.global_share_data_y, data_y))
 
+        # 如果没有收集到任何共享数据，设置为None
+        if not hasattr(self, 'global_share_dataset1') or self.global_share_dataset1 is None:
+            self.global_share_dataset1 = None
+            self.global_share_dataset2 = None
+            self.global_share_data_y = None
 
     def test(self):
         logging.info("################test_on_server_for_all_clients : {}".format(

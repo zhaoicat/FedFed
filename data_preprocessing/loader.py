@@ -21,11 +21,13 @@ from .cifar10.datasets import CIFAR10_truncated_WO_reload
 from .cifar100.datasets import CIFAR100_truncated_WO_reload
 from .SVHN.datasets import SVHN_truncated_WO_reload
 from .FashionMNIST.datasets import FashionMNIST_truncated_WO_reload
+from .yummly28k.datasets import Yummly28k, Yummly28k_truncated_WO_reload
 
 from .cifar10.datasets import data_transforms_cifar10
 from .cifar100.datasets import data_transforms_cifar100
 from .SVHN.datasets import data_transforms_SVHN
 from .FashionMNIST.datasets import data_transforms_fmnist
+from .yummly28k.transform import data_transforms_yummly28k
 
 
 from data_preprocessing.utils.stats import record_net_data_stats
@@ -33,7 +35,7 @@ from data_preprocessing.utils.stats import record_net_data_stats
 
 
 NORMAL_DATASET_LIST = ["cifar10", "cifar100", "SVHN",
-                        "mnist", "fmnist", "femnist-digit", "Tiny-ImageNet-200"]
+                        "mnist", "fmnist", "femnist-digit", "Tiny-ImageNet-200", "yummly28k"]
 
 
 
@@ -44,6 +46,7 @@ class Data_Loader(object):
         "cifar100": CIFAR100,
         "SVHN": SVHN,
         "fmnist": FashionMNIST,
+        "yummly28k": Yummly28k,
 
     }
     sub_data_obj_dict = {
@@ -51,6 +54,7 @@ class Data_Loader(object):
         "cifar100": CIFAR100_truncated_WO_reload,
         "SVHN": SVHN_truncated_WO_reload,
         "fmnist": FashionMNIST_truncated_WO_reload,
+        "yummly28k": Yummly28k_truncated_WO_reload,
     }
 
     transform_dict = {
@@ -58,6 +62,7 @@ class Data_Loader(object):
         "cifar100": data_transforms_cifar100,
         "SVHN": data_transforms_SVHN,
         "fmnist": data_transforms_fmnist,
+        "yummly28k": data_transforms_yummly28k,
 
     }
 
@@ -66,6 +71,8 @@ class Data_Loader(object):
         "cifar100": 100,
         "SVHN": 10,
         "fmnist": 10,
+        "yummly28k": 16,  # 默认使用菜系分类，16个类别
+
     }
 
 
@@ -74,6 +81,8 @@ class Data_Loader(object):
         "cifar100": 32,
         "SVHN": 32,
         "fmnist": 32,
+        "yummly28k": 32,  # 改为32以兼容VAE架构
+
     }
 
 
@@ -137,16 +146,22 @@ class Data_Loader(object):
 
 
     def get_transform(self, resize, augmentation, dataset_type, image_resolution=32):
-        MEAN, STD, train_transform, test_transform = \
-            self.transform_func(
-                resize=resize, augmentation=augmentation, dataset_type=dataset_type, image_resolution=image_resolution)
+        if self.dataset == "yummly28k":
+            # Yummly28k使用不同的transform函数签名
+            MEAN, STD, train_transform, test_transform = self.transform_func(
+                resize=resize, augmentation=augmentation, dataset_type=dataset_type, image_resolution=image_resolution
+            )
+        else:
+            MEAN, STD, train_transform, test_transform = \
+                self.transform_func(
+                    resize=resize, augmentation=augmentation, dataset_type=dataset_type, image_resolution=image_resolution)
         # if self.args.Contrastive == "SimCLR":
         return MEAN, STD, train_transform, test_transform
 
 
 
     def load_full_data(self):
-        # For cifar10, cifar100, SVHN, FMNIST
+        # For cifar10, cifar100, SVHN, FMNIST, Yummly28k
         MEAN, STD, train_transform, test_transform = self.get_transform(
             self.resize, self.augmentation, "full_dataset", self.image_resolution)
 
@@ -156,6 +171,17 @@ class Data_Loader(object):
             test_ds = self.full_data_obj(self.datadir,  "test", download=True, transform=test_transform, target_transform=None)
             train_ds.data = train_ds.data.transpose((0,2,3,1))
             # test_ds.data =  test_ds.data.transpose((0,2,3,1))
+            logging.info(os.getcwd())
+        elif self.dataset == "yummly28k":
+            # Yummly28k数据集需要特殊参数
+            train_ds = self.full_data_obj(
+                self.datadir, train=True, download=True, transform=train_transform,
+                classification_type="cuisine"  # 默认使用菜系分类
+            )
+            test_ds = self.full_data_obj(
+                self.datadir, train=False, download=True, transform=test_transform,
+                classification_type="cuisine"  # 默认使用菜系分类
+            )
             logging.info(os.getcwd())
         else:
             train_ds = self.full_data_obj(self.datadir,  train=True, download=True, transform=train_transform)
@@ -191,10 +217,14 @@ class Data_Loader(object):
 
     def get_dataloader(self, train_ds, test_ds,shuffle=True, drop_last=False, train_sampler=None, num_workers=1):
         logging.info(f"shuffle: {shuffle}, drop_last:{drop_last}, train_sampler:{train_sampler} ")
+        
+        # 强制使用num_workers=0以避免多进程问题
+        actual_num_workers = 0
+        
         train_dl = data.DataLoader(dataset=train_ds, batch_size=self.batch_size, shuffle=shuffle,   # dl means dataloader
-                                drop_last=drop_last, sampler=train_sampler, num_workers=num_workers) # sampler定义自己的sampler策略，如果指定这个参数，则shuffle必须为False
-        test_dl = data.DataLoader(dataset=test_ds, batch_size=self.batch_size, shuffle=True,
-                                drop_last=False, num_workers=num_workers)  # drop_last为True剩余的数据不够一个batch会扔掉
+                                drop_last=drop_last, sampler=train_sampler, num_workers=actual_num_workers, pin_memory=False) # sampler定义自己的sampler策略，如果指定这个参数，则shuffle必须为False
+        test_dl = data.DataLoader(dataset=test_ds, batch_size=self.batch_size, shuffle=False,  # 测试时不要shuffle
+                                drop_last=False, num_workers=actual_num_workers, pin_memory=False)  # drop_last为True剩余的数据不够一个batch会扔掉
 
         return train_dl, test_dl
 

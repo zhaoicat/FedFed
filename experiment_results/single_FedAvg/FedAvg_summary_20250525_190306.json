@@ -1,0 +1,12 @@
+{
+  "algorithm": "FedAvg",
+  "timestamp": "20250525_190306",
+  "total_rounds": 3,
+  "total_time_minutes": 32.905858266353604,
+  "final_train_accuracy": 0,
+  "final_test_accuracy": 0,
+  "best_test_accuracy": 0,
+  "final_train_loss": 0,
+  "final_test_loss": 0,
+  "avg_time_per_round": 0
+}

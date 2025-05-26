@@ -1,0 +1,100 @@
+dataset: 'yummly28k'
+data_dir: './../data'
+algorithm: 'FedAvg'  # 先使用FedAvg测试基本功能
+
+# 联邦学习快速测试参数
+client_num_in_total: 3        # 只用3个客户端
+client_num_per_round: 2       # 每轮只选2个客户端
+comm_round: 3                 # 只训练3轮通信
+global_epochs_per_round: 1    # 每轮只训练1个epoch
+
+# 数据集参数
+num_classes: 16
+model_input_channels: 3
+model_output_dim: 16
+partition_method: 'hetero'
+partition_alpha: 0.5          # 增大alpha使数据分布更均匀，加快收敛
+
+# 记录工具
+record_tool: 'tensorboard'    # 使用tensorboard而不是wandb
+wandb_record: False
+
+# 暂时禁用VAE功能
+VAE: False
+
+# 模型参数
+model: 'resnet18_v2'
+lr: 0.01         # 增大学习率以加快收敛
+wd: 0.0001
+momentum: 0.9
+nesterov: False
+
+# 数据加载参数
+dataset_aug: 'default'
+dataset_resize: False
+dataset_load_image_size: 32
+data_efficient_load: True
+data_load_num_workers: 0  # 禁用多进程数据加载
+data_sampler: 'random'
+
+# 其他参数
+gpu_index: 0
+seed: 42
+mode: 'standalone'
+task: 'classification'
+test: True
+instantiate_all: True
+client_index: 0
+
+# 学习率调度
+sched: 'no'
+lr_decay_rate: 0.992
+step_size: 1
+warmup_epochs: 0
+
+# 损失函数
+loss_fn: 'CrossEntropy'
+exchange_model: True
+
+# 客户端选择
+client_select: 'random'
+
+# 特征相关
+model_out_feature: False
+model_out_feature_layer: 'last'
+model_feature_dim: 512
+
+# 图像分辨率
+image_resolution: 32
+
+# 日志级别
+level: 'INFO'
+
+# 联邦学习特定参数
+fedprox: False
+fedprox_mu: 0.1
+scaffold: False
+
+# 预训练
+pretrained: False
+pretrained_dir: ' '
+
+# 其他变换
+TwoCropTransform: False
+
+# Dirichlet参数
+dirichlet_min_p: null
+dirichlet_balance: False
+
+# 训练配置
+training:
+  batch_size: 256
+  num_workers: 0  # 禁用多进程
+  pin_memory: False  # 禁用pin_memory
+  prefetch_factor: 2
+  persistent_workers: False  # 禁用持久化workers
+  accumulation_steps: 4
+  use_amp: True
+
+# 批次大小
+batch_size: 32 

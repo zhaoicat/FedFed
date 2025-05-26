@@ -1,0 +1,13 @@
+{
+  "algorithm": "FedAvg",
+  "dataset": "yummly28k",
+  "timestamp": "20250525_195621",
+  "total_rounds": 3,
+  "total_time_minutes": 30.039720698197684,
+  "final_train_accuracy": 50.234008915593186,
+  "final_test_accuracy": 50.234008915593186,
+  "best_test_accuracy": 50.234008915593186,
+  "final_train_loss": 0.0,
+  "final_test_loss": 0.0,
+  "avg_time_per_round": 699.179161032041
+}

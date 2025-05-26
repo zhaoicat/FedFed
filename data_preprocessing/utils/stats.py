@@ -44,6 +44,8 @@ def get_dataset_image_size(dataset):
         image_size = 28
     elif dataset in ["Tiny-ImageNet-200"]:
         image_size = 64
+    elif dataset in ["yummly28k"]:
+        image_size = 32
     elif dataset in generative_image_resolution_dict:
         image_size = generative_image_resolution_dict[dataset]
     else:

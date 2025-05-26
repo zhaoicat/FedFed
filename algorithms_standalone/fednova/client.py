@@ -7,10 +7,10 @@ from algorithms_standalone.basePS.client import Client
 
 
 class FedNovaClient(Client):
-    def __init__(self, client_index, train_ori_data, train_ori_targets,test_dataloader, train_data_num,
-                test_data_num, train_cls_counts_dict, device, args, model_trainer, vae_model, dataset_num, perf_timer=None, metrics=None):
+    def __init__(self, client_index, train_ori_data, train_ori_targets, test_dataloader, train_data_num,
+                 test_data_num, train_cls_counts_dict, device, args, model_trainer, vae_model, dataset_num):
         super().__init__(client_index, train_ori_data, train_ori_targets, test_dataloader, train_data_num,
-                test_data_num,  train_cls_counts_dict, device, args, model_trainer, vae_model, dataset_num, perf_timer, metrics)
+                         test_data_num, train_cls_counts_dict, device, args, model_trainer, vae_model, dataset_num)
         local_num_iterations_dict = {}
         local_num_iterations_dict[self.client_index] = self.local_num_iterations
 

@@ -1,22 +1,22 @@
-dataset: 'cifar10'
+dataset: 'yummly28k'
 data_dir: './../data'
 
 # 训练相关配置
 training:
-  batch_size: 2048  # 训练批次大小
-  num_workers: 24   # 数据加载的工作进程数
+  batch_size: 64  # 减小批次大小适应新数据集
+  num_workers: 4   # 减少工作进程数
   pin_memory: true  # 是否将数据加载到固定内存中
   prefetch_factor: 2  # 预加载因子
   persistent_workers: true  # 是否保持工作进程存活
-  accumulation_steps: 8  # 梯度累积步数
+  accumulation_steps: 4  # 减少梯度累积步数
   use_amp: true  # 是否使用混合精度训练
 
 client_num_in_total: 10
 client_num_per_round: 5
-comm_round: 1000
+comm_round: 100  # 减少通信轮数用于测试
 global_epochs_per_round: 1
-num_classes: 10 # 10 for CIFAR-10, SVHN, FMNIST and 100 for CIFAR-100
-model_input_channels: 3 # 3 for CIFAR-10, SVHN, CIFAR-100 and 1 for FMNIST
+num_classes: 16  # Yummly28k有16种菜系
+model_input_channels: 3  # RGB图像
 
 record_tool: 'wandb'  # using wandb or tensorboard
 wandb_record: False

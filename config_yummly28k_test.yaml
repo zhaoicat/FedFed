@@ -1,0 +1,100 @@
+# Yummly28k数据集联邦学习配置文件
+dataset: 'yummly28k'
+data_dir: './../data'
+algorithm: 'FedAvg'
+
+# 联邦学习配置
+client_num_in_total: 3
+client_num_per_round: 2
+comm_round: 10
+global_epochs_per_round: 2
+
+# 数据分布配置
+partition_method: 'hetero'
+partition_alpha: 0.5
+
+# 数据集参数
+num_classes: 16
+model_input_channels: 3
+model_output_dim: 16
+
+# 模型配置
+model: 'resnet18_v2'
+lr: 0.01
+batch_size: 32
+seed: 42
+wd: 0.0001
+momentum: 0.9
+nesterov: False
+
+# 设备配置
+gpu_index: 0
+
+# 记录配置 - 完全禁用wandb
+record_tool: 'tensorboard'
+wandb_record: False
+
+# VAE配置 - 完全禁用VAE
+VAE: False
+VAE_batch_size: 32
+VAE_aug_batch_size: 32
+VAE_re: 5.0
+VAE_ce: 2.0
+VAE_kl: 0.005
+VAE_std1: 0.15
+VAE_std2: 0.25
+VAE_x_ce: 0.4
+VAE_comm_round: 0  # 设为0禁用VAE轮次
+VAE_client_num_per_round: 0  # 设为0禁用VAE客户端
+VAE_adaptive: False
+VAE_d: 32
+VAE_z: 2048
+
+# 数据加载配置
+dataset_aug: 'default'
+dataset_load_image_size: 32
+data_load_num_workers: 0  # 禁用多进程
+data_efficient_load: True
+data_sampler: 'random'
+
+# 其他配置
+loss_fn: 'CrossEntropy'
+sched: 'no'
+mode: 'standalone'
+task: 'classification'
+test: True
+instantiate_all: True
+client_index: -1
+exchange_model: True
+client_select: 'random'
+model_out_feature: False
+model_out_feature_layer: 'last'
+model_feature_dim: 512
+image_resolution: 32
+level: 'INFO'
+pretrained: False
+pretrained_dir: ' '
+TwoCropTransform: False
+dirichlet_min_p: null
+dirichlet_balance: False
+
+# 联邦学习特定参数
+fedprox: False
+fedprox_mu: 0.1
+scaffold: False
+
+# PFedMe算法参数
+pfedme_beta: 1.0
+pfedme_lamda: 15.0
+pfedme_K: 5
+pfedme_personal_lr: 0.01
+
+# 训练配置
+training:
+  batch_size: 32
+  num_workers: 0  # 禁用多进程
+  pin_memory: False
+  prefetch_factor: 2
+  persistent_workers: False
+  accumulation_steps: 4
+  use_amp: False  # 禁用混合精度 
